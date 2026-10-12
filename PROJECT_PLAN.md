@@ -14,18 +14,23 @@ project-management tool are parked in Section 7 as future ideas.
 
 ## 1. NEXT SESSION — START HERE
 
-*(set 2026-10-12, end of session 2)*
+*(set 2026-10-12, end of session 3)*
 
-Phase 1 is built and tested locally, and committed (not pushed).
-1. **Brian:** look over the page and approve it (Phase 1, last box). To
-   view it, ask Claude to start the local preview, or wait for the
-   netlify.app test address in Phase 2.
-2. **Brian:** answer D2 (git mode). Then record it in Brainstem rule 7 and
-   the Entities list, and in this project's `CLAUDE.md`.
-3. Push to GitHub, confirm the Checks workflow is green (html-validate has
-   never run on this code, so expect a fix or two), then Phase 2: create
-   the Netlify site and turn on form notifications.
-
+Phase 1 is done and approved. The code is on GitHub (`main`, pushed after
+every change) and the Checks workflow is green. Next is Phase 2:
+1. **Create the Netlify site** in the frog-in-biz team: Add new project >
+   Import from GitHub > `froginbusiness/medium-ideas-web`. No build command;
+   `netlify.toml` sets the publish folder (`site`). Netlify may need
+   permission to see this repo in its GitHub app settings.
+2. Confirm it works at the temporary `*.netlify.app` address, and that
+   Netlify found the `contact` form (Forms tab). If Forms needs enabling,
+   turn on form detection and redeploy.
+3. Turn on email notifications for the `contact` form to
+   brian@mediumideas.net.
+4. Send a ZZ test entry on the netlify.app address and confirm the email
+   arrives (check spam).
+5. Write `SECURITY.md`.
+Then Phase 3 (DNS at Squarespace), confirming each change with Brian first.
 ---
 
 ## 2. What We Know (facts as of 2026-10-12)
@@ -108,8 +113,8 @@ Phase 1 is built and tested locally, and committed (not pushed).
       `.github/workflows/checks.yml` runs html-validate 11.16.1, a JS syntax
       check and `scripts/check_links.py` (missing files and anchors, inline
       styles and scripts; tested against planted errors).
-- [ ] Checks workflow green on GitHub. The first run (2026-10-12) flagged one
-      issue: the honeypot input had no `type`. Fixed in the next push.
+- [x] Checks workflow green on GitHub (run #2, commit d704727, 2026-10-12).
+      Run #1 flagged one issue: the honeypot input had no `type`.
 - [ ] Create the Netlify site from the repo. Confirm it works at the
       temporary `*.netlify.app` address.
 - [ ] Netlify Forms: turn on email notifications to brian@mediumideas.net.
@@ -181,6 +186,11 @@ Phase 1 is built and tested locally, and committed (not pushed).
   phone-width overflow checks, and 26 Playwright form tests (ZZ entries,
   local stand-in server). Added CLAUDE.md, netlify.toml, the Checks
   workflow and check_links.py. Committed locally; not pushed (D2 pending).
+- **2026-10-12 (session 3):** Brian approved the page and chose "push after
+  every change" (recorded in Brainstem rule 7 and the Entities list).
+  Pushed. GitHub's repo URL is lowercase (`medium-ideas-web`), and the
+  remote was updated. Checks run #1 failed on the honeypot `type`; fixed,
+  and run #2 is green.
 
 ---
 

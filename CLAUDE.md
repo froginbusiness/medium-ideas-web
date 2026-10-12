@@ -8,7 +8,7 @@ to this project. Plan, decisions and handoff: `PROJECT_PLAN.md` (read
 - The public one-page site for Medium Ideas LLC, https://mediumideas.net.
 - Plain HTML/CSS/JS in `site/`. No build step and no framework.
 - Hosting: Netlify (same account as happyhomesupply.co), config in `netlify.toml`.
-- Repo: github.com/froginbusiness/Medium-Ideas-Web (private).
+- Repo: github.com/froginbusiness/medium-ideas-web (private).
 - Design source: `..\DesignStudio\WebSite\Medium Ideas Website.html` (a Claude
   Design bundle). When the design changes, re-extract it and update `site/`
   by hand. Never ship the bundle itself.
