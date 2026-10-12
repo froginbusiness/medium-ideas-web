@@ -107,7 +107,7 @@ Then Phase 3 (DNS at Squarespace), confirming each change with Brian first.
 ### Phase 2: Repo, checks and hosting setup
 - [x] `git init`, `.gitignore`, `CLAUDE.md` (project rules), `netlify.toml`
       (publish `site/`, strict CSP and security headers, www -> bare domain).
-- [ ] `SECURITY.md` (points to `FrogInBusiness\Security-Policy.md`, plus
+- [x] `SECURITY.md` written, with the baseline review logged 2026-10-12 (points to `FrogInBusiness\Security-Policy.md`, plus
       this project's services and review log).
 - [x] GitHub Actions check (Brainstem rule 10) written:
       `.github/workflows/checks.yml` runs html-validate 11.16.1, a JS syntax
