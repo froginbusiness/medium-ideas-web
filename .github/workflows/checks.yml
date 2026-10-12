@@ -1,0 +1,36 @@
+# Code checks on every push and pull request (Brainstem rule 10).
+# Runs on GitHub's servers only: it does not deploy anything and does not
+# block Netlify. A red X here means "look at this", not "the site is down".
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Read-only: this job never needs to write to the repo.
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: HTML check (html-validate, settings in .htmlvalidate.json)
+        run: npx --yes html-validate@11.16.1 "site/**/*.html"
+
+      - name: JavaScript syntax check
+        if: always()
+        run: find site -name "*.js" -print0 | xargs -0 -n1 node --check
+
+      - name: Local links and files exist
+        if: always()
+        run: python3 scripts/check_links.py

@@ -1,0 +1,42 @@
+# Netlify: the public Medium Ideas website (mediumideas.net).
+# Plain HTML/CSS/JS in site/, no build step. The contact form uses Netlify
+# Forms (form name "contact"); email notifications to brian@mediumideas.net
+# are set in the Netlify UI under Forms > Form notifications.
+[build]
+  publish = "site"
+  command = "echo 'no build step'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'; object-src 'none'"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Page code: always revalidate so edits show up right away.
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "no-cache"
+# Fonts and images rarely change.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# One address for the site: www goes to the bare domain.
+[[redirects]]
+  from = "https://www.mediumideas.net/*"
+  to = "https://mediumideas.net/:splat"
+  status = 301
+  force = true
