@@ -14,23 +14,22 @@ project-management tool are parked in Section 7 as future ideas.
 
 ## 1. NEXT SESSION — START HERE
 
-*(set 2026-10-12, end of session 3)*
+*(set 2026-10-12, end of session 4)*
 
-Phase 1 is done and approved. The code is on GitHub (`main`, pushed after
-every change) and the Checks workflow is green. Next is Phase 2:
-1. **Create the Netlify site** in the frog-in-biz team: Add new project >
-   Import from GitHub > `froginbusiness/medium-ideas-web`. No build command;
-   `netlify.toml` sets the publish folder (`site`). Netlify may need
-   permission to see this repo in its GitHub app settings.
-2. Confirm it works at the temporary `*.netlify.app` address, and that
-   Netlify found the `contact` form (Forms tab). If Forms needs enabling,
-   turn on form detection and redeploy.
-3. Turn on email notifications for the `contact` form to
-   brian@mediumideas.net.
-4. Send a ZZ test entry on the netlify.app address and confirm the email
-   arrives (check spam).
-5. Write `SECURITY.md`.
-Then Phase 3 (DNS at Squarespace), confirming each change with Brian first.
+Phase 2 is done: the site is live at https://medium-ideas-web.netlify.app,
+and the contact form emails brian@mediumideas.net (live ZZ test passed).
+Next is Phase 3, going live on mediumideas.net. Confirm each DNS change with
+Brian first:
+1. Screenshot or export the current Squarespace DNS records (backup).
+2. In Netlify: Domain management > add mediumideas.net (primary) and www.
+   Netlify shows the exact records to use.
+3. At Squarespace: point the apex and www to Netlify. **Leave MX
+   (smtp.google.com) and google-site-verification alone.**
+4. Add SPF, DKIM (generate in Google Admin first) and DMARC.
+5. Wait for HTTPS, then run the Phase 4 launch checks and the launch
+   security review.
+Small leftovers: delete the ZZ submission in Netlify; optionally add a
+Gmail filter for Primary.
 ---
 
 ## 2. What We Know (facts as of 2026-10-12)
@@ -115,12 +114,22 @@ Then Phase 3 (DNS at Squarespace), confirming each change with Brian first.
       styles and scripts; tested against planted errors).
 - [x] Checks workflow green on GitHub (run #2, commit d704727, 2026-10-12).
       Run #1 flagged one issue: the honeypot input had no `type`.
-- [ ] Create the Netlify site from the repo. Confirm it works at the
-      temporary `*.netlify.app` address.
-- [ ] Netlify Forms: turn on email notifications to brian@mediumideas.net.
-- [ ] **Test the form on the netlify.app address:** submit a ZZ test entry,
-      confirm the email arrives (check spam too), and confirm spam
-      filtering is on.
+- [x] Netlify site `medium-ideas-web` (frog-in-biz team) deploys from
+      GitHub `main`: https://medium-ideas-web.netlify.app. Brian created it
+      2026-10-12. All files load, CSP and security headers are served, and the
+      404 page works.
+- [x] Form detection enabled (it's off by default for new sites), then
+      redeployed. Netlify now detects the `contact` form.
+- [x] Email notification: new submissions go to brian@mediumideas.net, with
+      subject "New website inquiry (mediumideas.net)".
+- [x] **Live ZZ test passed (2026-10-12, 10:14 AM):** the popup showed, the
+      POST returned 200, and Netlify logged 1 submission. The email arrived in
+      the Inbox (not spam), filed under Gmail's Updates tab, in the frog@
+      mailbox, with all four fields.
+- [ ] Delete the ZZ test submission in Netlify (Forms > contact) when done
+      looking at it.
+- [ ] Optional: a Gmail filter so these emails land in Primary instead of
+      Updates.
 
 ### Phase 3: Go live on mediumideas.net (confirm with Brian before each DNS change)
 - [ ] Screenshot or export the current Squarespace DNS records first (as a
@@ -191,6 +200,10 @@ Then Phase 3 (DNS at Squarespace), confirming each change with Brian first.
   Pushed. GitHub's repo URL is lowercase (`medium-ideas-web`), and the
   remote was updated. Checks run #1 failed on the honeypot `type`; fixed,
   and run #2 is green.
+- **2026-10-12 (session 4):** Brian created the Netlify site. With his OK,
+  Claude enabled form detection, pushed SECURITY.md (baseline review) to
+  redeploy, added the email notification, and sent one live ZZ test. The
+  popup showed, Netlify logged it, and the email reached the inbox.
 
 ---
 

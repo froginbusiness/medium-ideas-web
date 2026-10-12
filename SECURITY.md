@@ -105,10 +105,12 @@ this site, notify these as they apply:
 - **C. Public surface: PASS.** `curl -I` on the netlify.app address shows the
   CSP and security headers. `check_links.py` shows 0 problems. Local browser
   tests found no CSP violations. `site/` holds only public content.
-- **D. Contact form: PARTLY DONE.** Honeypot, `maxlength` and required
-  fields are in place. Form detection was enabled 2026-10-12. Email
-  notification and a live ZZ test are in progress (Phase 2). Spam filter
-  status still to confirm in Netlify.
+- **D. Contact form: PASS (spam filter still to confirm).** Honeypot,
+  `maxlength` and required fields are in place. Form detection was enabled
+  and Netlify honors the honeypot (`netlify-honeypot` was processed at
+  deploy). The notification goes only to brian@mediumideas.net. A live ZZ
+  test was delivered. Netlify's spam filter setting not yet looked at; the
+  ZZ submission still needs deleting.
 - **F. Version audit: PASS.** checkout@v5, setup-node@v5, Node 24,
   html-validate 11.16.1 (2026-09-27). No runtime dependencies. Checks
   workflow green (run #2).
