@@ -108,7 +108,8 @@ Phase 1 is built and tested locally, and committed (not pushed).
       `.github/workflows/checks.yml` runs html-validate 11.16.1, a JS syntax
       check and `scripts/check_links.py` (missing files and anchors, inline
       styles and scripts; tested against planted errors).
-- [ ] Checks workflow green on GitHub (needs the first push).
+- [ ] Checks workflow green on GitHub. The first run (2026-10-12) flagged one
+      issue: the honeypot input had no `type`. Fixed in the next push.
 - [ ] Create the Netlify site from the repo. Confirm it works at the
       temporary `*.netlify.app` address.
 - [ ] Netlify Forms: turn on email notifications to brian@mediumideas.net.

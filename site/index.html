@@ -272,7 +272,7 @@
          without JavaScript it posts normally and lands on /thanks.html. -->
     <form id="contact-form" class="contact-form" name="contact" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact">
-      <p class="hp" aria-hidden="true"><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <p class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <label>Your name<input type="text" name="name" autocomplete="name" required maxlength="200"></label>
       <label><span>Company or nonprofit name <span class="optional">(optional)</span></span><input type="text" name="company" autocomplete="organization" maxlength="200"></label>
       <label>Email<input type="email" name="email" autocomplete="email" required maxlength="254"></label>
