@@ -14,8 +14,9 @@ to this project. Plan, decisions and handoff: `PROJECT_PLAN.md` (read
   by hand. Never ship the bundle itself.
 
 ## Git mode (Brainstem rule 7)
-- **Not decided yet.** Until Brian picks a mode, commit freely and push only
-  when he says.
+- **Commit and push after every completed change** (set by Brian
+  2026-10-12). Each push to `main` redeploys on Netlify once the site is
+  connected. Static builds are free.
 
 ## Rules for this site
 - **CSP is strict** (`netlify.toml`): no inline `style="..."`, no inline

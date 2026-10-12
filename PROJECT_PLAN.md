@@ -66,7 +66,7 @@ Phase 1 is built and tested locally, and committed (not pushed).
 | # | Question | Suggestion | Answer |
 |---|---|---|---|
 | D1 | Where does the project live? | This folder, `MediumIdeas\MediumIdeasWeb\`, with a private GitHub repo `froginbusiness/Medium-Ideas-Web` | **Yes** (2026-10-12). Brian created the repo |
-| D2 | Git mode (Brainstem rule 7) | Commit and push after every change. Netlify builds static sites free, so a push costs nothing | *Waiting.* Until answered, commit only and push when Brian says |
+| D2 | Git mode (Brainstem rule 7) | Commit and push after every change. Netlify builds static sites free, so a push costs nothing | **Push after every change** (2026-10-12). Recorded in Brainstem rule 7 |
 | D3 | Hosting account | The same Netlify account as happyhomesupply.co | **Yes**, same Netlify account (2026-10-12) |
 | D4 | Anything on Squarespace to keep? (old site, paid plan) Or is it just the domain? | Keep the domain and DNS at Squarespace, and only change the web records | **Domain only**, no Squarespace features used (2026-10-12) |
 | D5 | Auto-reply to people who submit the form? | Not at launch. Netlify's built-in email notice goes to Brian only. An auto-reply needs a small function, so add it later if wanted | **No auto-reply.** Instead, show an on-page "thanks for your message" popup so it's clear the send worked (2026-10-12) |
@@ -97,7 +97,7 @@ Phase 1 is built and tested locally, and committed (not pushed).
   or nonprofit name"; (3) on phones only: the HHS dashboard picture
   shrinks to fit instead of being cut off, the dot clusters move so they
   don't overlap headings, and the hero cards narrow slightly.
-- [ ] Brian reviews the page side by side with the design and approves it.
+- [x] Brian reviewed the page and approved it (2026-10-12).
 
 ### Phase 2: Repo, checks and hosting setup
 - [x] `git init`, `.gitignore`, `CLAUDE.md` (project rules), `netlify.toml`
