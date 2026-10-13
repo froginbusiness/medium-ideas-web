@@ -204,6 +204,12 @@ Gmail filter for Primary.
   Claude enabled form detection, pushed SECURITY.md (baseline review) to
   redeploy, added the email notification, and sent one live ZZ test. The
   popup showed, Netlify logged it, and the email reached the inbox.
+- **2026-10-12 (session 5):** Added a sixth "What we do" card, "Online
+  stores and payment processing" (cart icon, yellow), as card 5 so Support
+  stays last and the grid is two even rows of three. On Brian's request it
+  names no payment service, to stay open to whatever the client uses. Also
+  reworded "Custom app design" to list web-based databases, user portals
+  and CRMs.
 
 ---
 
