@@ -215,7 +215,11 @@ Gmail filter for Primary.
   care plans for support, maintenance, and updates). The last card became
   "Launch and ongoing improvements" so it no longer repeats care plans.
   Brian uses the Oxford comma: added it to every list on the site
-  (including the page title and meta descriptions).
+  (including the page title and meta descriptions). Oxford comma is now a
+  Brainstem rule for every project (ChickenWing keeps AP). Care plan
+  language moved off the websites card onto the launch card, framed as a
+  paid monthly option (support, maintenance, updates, and improvements
+  aren't free).
 
 ---
 
