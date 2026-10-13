@@ -209,7 +209,9 @@ Gmail filter for Primary.
   stays last and the grid is two even rows of three. On Brian's request it
   names no payment service, to stay open to whatever the client uses. Also
   reworded "Custom app design" to list web-based databases, user portals
-  and CRMs.
+  and CRMs. Brian then rewrote the new card as "E-commerce" (selling on
+  the site or marketplaces, credit cards, order tracking, inventory, sales
+  reports).
 
 ---
 
