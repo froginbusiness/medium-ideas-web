@@ -211,7 +211,8 @@ Gmail filter for Primary.
   reworded "Custom app design" to list web-based databases, user portals
   and CRMs. Brian then rewrote the new card as "E-commerce" (selling on
   the site or marketplaces, credit cards, order tracking, inventory, sales
-  reports).
+  reports), and rewrote the "Professional websites" card text (brand,
+  care plans for support, maintenance and updates).
 
 ---
 
