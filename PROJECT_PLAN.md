@@ -220,6 +220,8 @@ Gmail filter for Primary.
   language moved off the websites card onto the launch card, framed as a
   paid monthly option (support, maintenance, updates, and improvements
   aren't free).
+- **2026-10-13:** New About bio paragraph from Brian (tech role, bridging
+  real-world function and technical aptitude).
 
 ---
 
