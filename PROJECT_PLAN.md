@@ -212,7 +212,10 @@ Gmail filter for Primary.
   and CRMs. Brian then rewrote the new card as "E-commerce" (selling on
   the site or marketplaces, credit cards, order tracking, inventory, sales
   reports), and rewrote the "Professional websites" card text (brand,
-  care plans for support, maintenance and updates).
+  care plans for support, maintenance, and updates). The last card became
+  "Launch and ongoing improvements" so it no longer repeats care plans.
+  Brian uses the Oxford comma: added it to every list on the site
+  (including the page title and meta descriptions).
 
 ---
 
