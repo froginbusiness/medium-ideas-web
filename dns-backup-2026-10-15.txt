@@ -1,0 +1,13 @@
+mediumideas.net DNS backup, taken 2026-10-15 before Phase 3 (Netlify cutover)
+Source: public DNS lookup (dns.google). Host/registrar: Squarespace.
+Restore these at Squarespace if the cutover needs to be rolled back.
+
+NS     mediumideas.net       nsc1/nsc2/nsc3/nsc4.squarespacedns.com
+A      mediumideas.net       198.185.159.144, 198.185.159.145, 198.49.23.144, 198.49.23.145
+CNAME  www.mediumideas.net   ext-sq.squarespace.com
+MX     mediumideas.net       1 smtp.google.com          (NEVER change)
+TXT    mediumideas.net       google-site-verification=AHUnQzZPa78QIl9eacv4wU8By9i8uQjtWRSLZOjdnog   (NEVER change)
+
+Not present at backup time: AAAA, CAA, SPF, DMARC (_dmarc), DKIM (google._domainkey).
+Note: Squarespace's dashboard may also hold records a public lookup can't see
+(e.g. other subdomains). Brian's screenshot of the DNS settings page covers those.
