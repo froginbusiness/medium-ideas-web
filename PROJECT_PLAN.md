@@ -24,7 +24,11 @@ Brian first:
 2. In Netlify: Domain management > add mediumideas.net (primary) and www.
    Netlify shows the exact records to use.
 3. At Squarespace: point the apex and www to Netlify. **Leave MX
-   (smtp.google.com) and google-site-verification alone.**
+   (smtp.google.com) and google-site-verification alone.** Also remove
+   the Squarespace-defaults **HTTPS** record (@, ipv4hint = Squarespace
+   IPs), or some browsers keep going to Squarespace. Backup of every
+   record before the change: `dns-backup-2026-10-15.txt` (step 1 done
+   2026-10-15).
 4. Add SPF, DKIM (generate in Google Admin first) and DMARC.
 5. Wait for HTTPS, then run the Phase 4 launch checks and the launch
    security review.
