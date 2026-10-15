@@ -30,7 +30,13 @@ Brian first:
    the Squarespace-defaults **HTTPS** record (@, ipv4hint = Squarespace
    IPs), or some browsers keep going to Squarespace. Backup of every
    record before the change: `dns-backup-2026-10-15.txt` (step 1 done
-   2026-10-15).
+   2026-10-15). **Done 2026-10-15:** Squarespace Defaults preset deleted
+   (4 A, www CNAME, HTTPS); added `A @ 75.2.60.5` and
+   `CNAME www medium-ideas-web.netlify.app`. Google/Cloudflare resolvers
+   saw it within minutes; http://mediumideas.net served by Netlify, www
+   301s to the apex, MX unchanged. Squarespace asks for a 2FA code on DNS
+   edits (Brian enters it). Kept the A record although Squarespace does
+   offer ALIAS (Netlify's preferred); switching later is optional.
 4. Add SPF, DKIM (generate in Google Admin first) and DMARC.
 5. Wait for HTTPS, then run the Phase 4 launch checks and the launch
    security review.
