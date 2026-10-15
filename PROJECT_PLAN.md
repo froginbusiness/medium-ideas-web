@@ -22,7 +22,9 @@ Next is Phase 3, going live on mediumideas.net. Confirm each DNS change with
 Brian first:
 1. Screenshot or export the current Squarespace DNS records (backup).
 2. In Netlify: Domain management > add mediumideas.net (primary) and www.
-   Netlify shows the exact records to use.
+   **Done 2026-10-15** (both "Pending DNS verification"). Netlify's records:
+   apex `A @ 75.2.60.5` (Squarespace has no ALIAS) and
+   `CNAME www medium-ideas-web.netlify.app`.
 3. At Squarespace: point the apex and www to Netlify. **Leave MX
    (smtp.google.com) and google-site-verification alone.** Also remove
    the Squarespace-defaults **HTTPS** record (@, ipv4hint = Squarespace
