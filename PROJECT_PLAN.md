@@ -240,6 +240,15 @@ Squarespace's ALIAS -> apex-loadbalancer.netlify.com (Netlify's preferred).
   arrived ~2 hrs later after a "Verify DNS configuration" retry.
   Verified: https 200, http and www 301 to https apex, cert covers both
   names, MX unchanged. Next: SPF/DKIM/DMARC, then Phase 4.
+- **2026-10-15 (session 6, later):** Brian asked to feature ERP and UI/UX.
+  "Custom app design" became "Custom apps and ERP systems" (ERP spelled
+  out); new "UI and UX design" card as card 2 (pen icon); the "Launch and
+  ongoing improvements" card was folded into How we work steps 05 (care
+  plan details) and 06 (watch usage, listen to feedback), keeping the grid
+  at 6. Icon colors re-alternated. Hero spells out user interface (UI) and
+  user experience (UX) on first use. Also: title/meta description, case
+  tags (ChickenWing UI/UX, Happy Home Supply ERP), "lightweight ERP and
+  CRM," Sketch step "(UX research)," and a UX sentence in the About bio.
 
 ---
 
