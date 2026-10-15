@@ -14,34 +14,26 @@ project-management tool are parked in Section 7 as future ideas.
 
 ## 1. NEXT SESSION — START HERE
 
-*(set 2026-10-12, end of session 4)*
+*(set 2026-10-15, session 6)*
 
-Phase 2 is done: the site is live at https://medium-ideas-web.netlify.app,
-and the contact form emails brian@mediumideas.net (live ZZ test passed).
-Next is Phase 3, going live on mediumideas.net. Confirm each DNS change with
-Brian first:
-1. Screenshot or export the current Squarespace DNS records (backup).
-2. In Netlify: Domain management > add mediumideas.net (primary) and www.
-   **Done 2026-10-15** (both "Pending DNS verification"). Netlify's records:
-   apex `A @ 75.2.60.5` (Squarespace has no ALIAS) and
-   `CNAME www medium-ideas-web.netlify.app`.
-3. At Squarespace: point the apex and www to Netlify. **Leave MX
-   (smtp.google.com) and google-site-verification alone.** Also remove
-   the Squarespace-defaults **HTTPS** record (@, ipv4hint = Squarespace
-   IPs), or some browsers keep going to Squarespace. Backup of every
-   record before the change: `dns-backup-2026-10-15.txt` (step 1 done
-   2026-10-15). **Done 2026-10-15:** Squarespace Defaults preset deleted
-   (4 A, www CNAME, HTTPS); added `A @ 75.2.60.5` and
-   `CNAME www medium-ideas-web.netlify.app`. Google/Cloudflare resolvers
-   saw it within minutes; http://mediumideas.net served by Netlify, www
-   301s to the apex, MX unchanged. Squarespace asks for a 2FA code on DNS
-   edits (Brian enters it). Kept the A record although Squarespace does
-   offer ALIAS (Netlify's preferred); switching later is optional.
-4. Add SPF, DKIM (generate in Google Admin first) and DMARC.
-5. Wait for HTTPS, then run the Phase 4 launch checks and the launch
-   security review.
+**mediumideas.net is live on Netlify with HTTPS** (Let's Encrypt cert for
+mediumideas.net + www, issued 2026-10-15 ~11:30 AM, auto-renews). http and
+www both 301 to https://mediumideas.net. Email (MX) untouched. Phase 3
+steps 1-3 are done; details in Section 4 and the Session Log. Pre-change
+DNS backup: `dns-backup-2026-10-15.txt`.
+
+Next, in order (confirm each DNS change with Brian first; Squarespace
+asks for his authenticator code on DNS edits, and he enters it):
+1. Phase 3 email records at Squarespace: SPF, DKIM (Brian generates it in
+   Google Admin > Apps > Gmail > Authenticate email first), and DMARC.
+   Exact values are in Section 4, Phase 3.
+2. Phase 4 launch checks: live ZZ form test on mediumideas.net, SPF/DKIM/
+   DMARC PASS on a test email, mobile/desktop/console check, launch
+   security review in `SECURITY.md`.
 Small leftovers: delete the ZZ submission in Netlify; optionally add a
-Gmail filter for Primary.
+Gmail filter for Primary; optional switch of the apex A record to
+Squarespace's ALIAS -> apex-loadbalancer.netlify.com (Netlify's preferred).
+
 ---
 
 ## 2. What We Know (facts as of 2026-10-12)
@@ -144,14 +136,19 @@ Gmail filter for Primary.
       Updates.
 
 ### Phase 3: Go live on mediumideas.net (confirm with Brian before each DNS change)
-- [ ] Screenshot or export the current Squarespace DNS records first (as a
-      backup).
-- [ ] Add the domain in Netlify (mediumideas.net as main, www redirects to
+- [x] Screenshot or export the current Squarespace DNS records first (as a
+      backup). `dns-backup-2026-10-15.txt`
+- [x] Add the domain in Netlify (mediumideas.net as main, www redirects to
       it).
-- [ ] At Squarespace: change the apex A record(s) and the www CNAME to
+- [x] At Squarespace: change the apex A record(s) and the www CNAME to
       Netlify. **Leave the MX and google-site-verification records alone.**
-- [ ] Wait for DNS to update, then confirm Netlify's free HTTPS certificate
-      covers both addresses.
+      Done by deleting the "Squarespace Defaults" preset (4 A, www CNAME,
+      and an HTTPS record that would have kept sending browsers to
+      Squarespace), then adding `A @ 75.2.60.5` and
+      `CNAME www medium-ideas-web.netlify.app`.
+- [x] Wait for DNS to update, then confirm Netlify's free HTTPS certificate
+      covers both addresses. (~2 hrs after the DNS change, likely the old
+      4-hr TTL; covers mediumideas.net and www.)
 - [ ] Email security records at Squarespace:
   - [ ] SPF: `v=spf1 include:_spf.google.com ~all`
   - [ ] DKIM: generate in the Google Admin console (Apps > Gmail >
@@ -159,7 +156,7 @@ Gmail filter for Primary.
         authentication."
   - [ ] DMARC: start with `v=DMARC1; p=none; rua=mailto:brian@mediumideas.net`
         and tighten it to `quarantine` after a few clean weeks.
-- [ ] Squarespace is domain-only (D4), so there's no site or plan to turn
+- [x] Squarespace is domain-only (D4), so there's no site or plan to turn
       off. Just confirm its parking page is gone once DNS points to Netlify.
 
 ### Phase 4: Launch checks
@@ -234,6 +231,15 @@ Gmail filter for Primary.
   aren't free).
 - **2026-10-13:** New About bio paragraph from Brian (tech role, bridging
   real-world function and technical aptitude).
+- **2026-10-15 (session 6):** Phase 3 cutover. Saved a DNS backup
+  (public lookup plus Brian's Squarespace screenshots; found a hidden
+  Squarespace HTTPS record). Added mediumideas.net and www in Netlify via
+  Chrome. With Brian's OK, deleted the Squarespace Defaults preset and
+  added Netlify's A and www CNAME (Brian entered the Squarespace 2FA
+  code). Public resolvers updated within minutes; the Let's Encrypt cert
+  arrived ~2 hrs later after a "Verify DNS configuration" retry.
+  Verified: https 200, http and www 301 to https apex, cert covers both
+  names, MX unchanged. Next: SPF/DKIM/DMARC, then Phase 4.
 
 ---
 
