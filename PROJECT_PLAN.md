@@ -28,10 +28,14 @@ asks for his authenticator code on DNS edits, and he enters it):
    DKIM 2048-bit; Google Admin shows "Authenticating email with DKIM").
    Tighten DMARC to `quarantine` after a few clean weeks of reports
    (suggest ~2026-11-15).
-2. Phase 4 launch checks: live ZZ form test on mediumideas.net, SPF/DKIM/
-   DMARC PASS on a test email, mobile/desktop/console check, launch
+2. Phase 4 launch checks: ~~live ZZ form test on mediumideas.net~~ (passed
+   2026-10-15), SPF/DKIM/DMARC PASS on a test email, mobile/desktop/console check, launch
    security review in `SECURITY.md`.
-Small leftovers: delete the ZZ submission in Netlify; optionally add a
+**Reminder for Brian:** around **2026-11-15**, if the DMARC report emails
+look clean (only Google sending as mediumideas.net), change the `_dmarc`
+record at Squarespace from `p=none` to `p=quarantine`. Ask Cody to do it.
+Small leftovers: delete the two ZZ submissions in Netlify (2026-10-12 and
+2026-10-15) and the two ZZ notification emails in Gmail; optionally add a
 Gmail filter for Primary; optional switch of the apex A record to
 Squarespace's ALIAS -> apex-loadbalancer.netlify.com (Netlify's preferred).
 
@@ -162,8 +166,10 @@ Squarespace's ALIAS -> apex-loadbalancer.netlify.com (Netlify's preferred).
       off. Just confirm its parking page is gone once DNS points to Netlify.
 
 ### Phase 4: Launch checks
-- [ ] Live form test on mediumideas.net (ZZ test entry), and the email
-      arrives.
+- [x] Live form test on mediumideas.net (ZZ test entry), and the email
+      arrives. (2026-10-15: thank-you popup shown; "New website inquiry
+      (mediumideas.net)" reached brian@ within seconds, all four fields,
+      Inbox > Updates; no console errors on reload.)
 - [ ] Send a test email from brian@ to an outside address. Confirm SPF,
       DKIM and DMARC all show PASS (in Gmail: "Show original").
 - [ ] Mobile and desktop look right. No console errors, no broken links.
