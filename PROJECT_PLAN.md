@@ -14,34 +14,44 @@ project-management tool are parked in Section 7 as future ideas.
 
 ## 1. NEXT SESSION — START HERE
 
-*(set 2026-10-15, session 6)*
+*(set 2026-10-15, end of session 6)*
 
-**mediumideas.net is live on Netlify with HTTPS** (Let's Encrypt cert for
-mediumideas.net + www, issued 2026-10-15 ~11:30 AM, auto-renews). http and
-www both 301 to https://mediumideas.net. Email (MX) untouched. Phase 3
-steps 1-3 are done; details in Section 4 and the Session Log. Pre-change
-DNS backup: `dns-backup-2026-10-15.txt`.
+**Phase 3 is complete.** mediumideas.net is live on Netlify with HTTPS
+(Let's Encrypt cert for apex + www, auto-renews; http and www 301 to
+https://mediumideas.net). SPF, DKIM (2048-bit, Google Admin
+"Authenticating"), and DMARC `p=none` are live. MX untouched. Pre-change
+DNS backup: `dns-backup-2026-10-15.txt`. Squarespace DNS edits need
+Brian's authenticator code (it times out after a few idle minutes).
 
-Next, in order (confirm each DNS change with Brian first; Squarespace
-asks for his authenticator code on DNS edits, and he enters it):
-1. ~~Phase 3 email records~~ **Done 2026-10-15** (SPF, DMARC p=none,
-   DKIM 2048-bit; Google Admin shows "Authenticating email with DKIM").
-   Tighten DMARC to `quarantine` after a few clean weeks of reports
-   (suggest ~2026-11-15).
-2. Phase 4 launch checks: ~~live ZZ form test on mediumideas.net~~ (passed
-   2026-10-15), SPF/DKIM/DMARC PASS on a test email, mobile/desktop/console check, launch
-   security review in `SECURITY.md`.
+Site copy also changed today (ERP and UI/UX featured, "digital design
+studio," Launch card folded into How we work); see the Session Log.
+New Brainstem rules today: "Always ask, never assume" and acronyms
+spelled out on first use in public-facing work.
+
+**Next, in order (Phase 4 launch checks):**
+1. Brian sends a short email from brian@mediumideas.net to an outside
+   address (e.g. a personal Gmail), tells Cody which one, and Cody walks
+   him through "Show original" to confirm SPF, DKIM, and DMARC = PASS.
+2. Mobile and desktop look check, console errors, broken links on the
+   live site (the 2026-10-15 form test already showed no console errors).
+3. Launch security and version review in `SECURITY.md` (Brainstem rule 8:
+   new public domain + form), and the next review date on the frog@
+   calendar with Brian's OK.
+4. Optional: Google Search Console (verification TXT already in DNS).
+
 **Reminder for Brian:** around **2026-11-15**, if the DMARC report emails
 look clean (only Google sending as mediumideas.net), change the `_dmarc`
 record at Squarespace from `p=none` to `p=quarantine`. Ask Cody to do it.
-Small leftovers: delete the two ZZ submissions in Netlify (2026-10-12 and
-2026-10-15) and the two ZZ notification emails in Gmail; optionally add a
-Gmail filter for Primary; optional switch of the apex A record to
-Squarespace's ALIAS -> apex-loadbalancer.netlify.com (Netlify's preferred).
+
+Small leftovers (each needs Brian's OK): delete the two ZZ submissions in
+Netlify (2026-10-12 and 2026-10-15) and the two ZZ notification emails in
+Gmail; optionally a Gmail filter so inquiries land in Primary (they go to
+Updates); optional switch of the apex A record to Squarespace's ALIAS ->
+apex-loadbalancer.netlify.com (Netlify's preferred, needs 2FA).
 
 ---
 
-## 2. What We Know (facts as of 2026-10-12)
+## 2. What We Know (facts as of 2026-10-12; live status in Section 1)
 
 **The design**
 - Source: `MediumIdeas\DesignStudio\WebSite\Medium Ideas Website.html`
