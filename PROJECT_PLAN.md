@@ -24,9 +24,10 @@ DNS backup: `dns-backup-2026-10-15.txt`.
 
 Next, in order (confirm each DNS change with Brian first; Squarespace
 asks for his authenticator code on DNS edits, and he enters it):
-1. Phase 3 email records at Squarespace: SPF, DKIM (Brian generates it in
-   Google Admin > Apps > Gmail > Authenticate email first), and DMARC.
-   Exact values are in Section 4, Phase 3.
+1. ~~Phase 3 email records~~ **Done 2026-10-15** (SPF, DMARC p=none,
+   DKIM 2048-bit; Google Admin shows "Authenticating email with DKIM").
+   Tighten DMARC to `quarantine` after a few clean weeks of reports
+   (suggest ~2026-11-15).
 2. Phase 4 launch checks: live ZZ form test on mediumideas.net, SPF/DKIM/
    DMARC PASS on a test email, mobile/desktop/console check, launch
    security review in `SECURITY.md`.
@@ -149,12 +150,13 @@ Squarespace's ALIAS -> apex-loadbalancer.netlify.com (Netlify's preferred).
 - [x] Wait for DNS to update, then confirm Netlify's free HTTPS certificate
       covers both addresses. (~2 hrs after the DNS change, likely the old
       4-hr TTL; covers mediumideas.net and www.)
-- [ ] Email security records at Squarespace:
-  - [ ] SPF: `v=spf1 include:_spf.google.com ~all`
-  - [ ] DKIM: generate in the Google Admin console (Apps > Gmail >
+- [x] Email security records at Squarespace (all added and verified on
+      Google + Cloudflare DNS 2026-10-15):
+  - [x] SPF: `v=spf1 include:_spf.google.com ~all`
+  - [x] DKIM: generate in the Google Admin console (Apps > Gmail >
         Authenticate email), add the TXT record, then click "Start
         authentication."
-  - [ ] DMARC: start with `v=DMARC1; p=none; rua=mailto:brian@mediumideas.net`
+  - [x] DMARC: start with `v=DMARC1; p=none; rua=mailto:brian@mediumideas.net`
         and tighten it to `quarantine` after a few clean weeks.
 - [x] Squarespace is domain-only (D4), so there's no site or plan to turn
       off. Just confirm its parking page is gone once DNS points to Netlify.
@@ -240,6 +242,14 @@ Squarespace's ALIAS -> apex-loadbalancer.netlify.com (Netlify's preferred).
   arrived ~2 hrs later after a "Verify DNS configuration" retry.
   Verified: https 200, http and www 301 to https apex, cert covers both
   names, MX unchanged. Next: SPF/DKIM/DMARC, then Phase 4.
+- **2026-10-15 (session 6, email records):** With Brian's OK, generated
+  the mediumideas.net DKIM key in Google Admin via Chrome (2048-bit,
+  selector "google"; Brian re-entered his Google password), then added
+  TXT @ SPF, TXT _dmarc (p=none, rua to brian@), and TXT
+  google._domainkey at Squarespace (Brian entered 2FA twice; it times out
+  after a few idle minutes). Verified all three on Google and Cloudflare
+  DNS (DKIM byte-for-byte), then clicked Start authentication: status
+  "Authenticating email with DKIM." Phase 3 complete.
 - **2026-10-15 (session 6, later):** Brian asked to feature ERP and UI/UX.
   "Custom app design" became "Custom apps and ERP systems" (ERP spelled
   out); new "UI and UX design" card as card 2 (pen icon); the "Launch and
